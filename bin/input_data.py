@@ -1,5 +1,7 @@
 # INPUT MÊS E DIA:
 
+from bin.gerador_temp.main import Temperatura
+
 class Data:
 
     def __init__(self, dia, mes):
