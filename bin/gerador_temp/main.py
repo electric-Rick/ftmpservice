@@ -1,6 +1,25 @@
-# Descrição:
-#   1-Adicionar biblioteca do random
-#   2-Criar por classe o gerador de temperatura
-#   3-Criar lista com mínimos e máximos de temperatura do dia, tente utilizar métodos da classe. Dica: < [{min: temp_min, max: temp_max}] >
-#   4-Criar lista com todos os índices de temperatura com limite máximo 365.
-# Dica: Por convenção classes começam com letras maiusculas: < class Carro: > é um exemplo
+# CLASSE TEMPERATURA:
+
+from random import randint
+
+class Temperatura:
+
+    def __init__ (self, temp_min, temp_max):
+        self.tmin = temp_min
+        self.tmax = temp_max
+        pass
+
+    def lista():
+        tmin = randint(15,30)
+        tmax = randint(30,45)
+        lst_temp = {'min':tmin,'max':tmax}
+        return lst_temp
+
+    def ano():
+        lst = []
+        while 1:
+            for i in range(1,366):
+                a = [i,Temperatura.lista()]
+                lst.extend(a)
+            break
+        return lst
