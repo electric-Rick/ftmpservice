@@ -1,11 +1,12 @@
-from lib import carros
-from lib import tanques
+from bin.input_data import Data
+from bin.gerador_temp.main import Temperatura
 
-def main_application():
-	f = Carro("manual", "goodyear", "v2", "cherry", 1, "desligado")
-	g = tanques.m101.Tanque("1.5mm")
-	print(f.status())
-	pass
+# Temperatura.planilha() = banco de dados
 
+a = Data.data()
 
-main_application()
+print('\n')
+print('~'*70)
+print('   No dia %i de %s, a variação de temperatura foi de %i° à %i°' % (a[1], Data.traducao(a[0]),Temperatura.planilha()[a[0] - 1][a[1] -1][1]['min'],Temperatura.planilha()[a[0] - 1][a[1] -1][1]['max']))
+print('~'*70)
+print('\n')
