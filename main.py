@@ -3,10 +3,9 @@
 from bin.repl import main
 # Temperatura.planilha() = banco de dados
 
-#a = Data.data()
-
 print('\n')
 print('~'*70)
+
 print("Olá, usuário!\n Digite seu nome e senha para garantirmos os dados desta sessão: \n")
 
 user = input("username: ")
