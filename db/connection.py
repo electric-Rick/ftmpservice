@@ -41,12 +41,6 @@ class Connection:
 			print("Fim da conexão com o banco de dados. \n TABLE: ", t, "\n DATABASE:  ", d)
 
 	def execute_query(query):
-		print("QUERY CHAMADA: ", query)
+		print("Consulta realizada! query:", query)
 		cursor = Connection.to_database('database', 'test_yoobe')
 		pass
-
-
-
-
-db = Connection("formiga","lazer")
-print(db)
