@@ -3,6 +3,8 @@
 import asyncio
 import sys
 import time
+from commands import commands
+
 # adicionar modulo que lidará com login do usuário auth_module?
 from code import InteractiveConsole
 
@@ -13,11 +15,17 @@ class ApplicationReplSession:
 		self.k = key
 
 	def start_repl(self):
-		ApplicationReplSession(self.u, self.k).check_auth()
+		if ApplicationReplSession(self.u, self.k).check_auth() == True:
 
+		else:
+
+
+		# checagem e interrupção
+		# check--->OK continue por aqui >>>
 		while True:
+			#cabecalho da linha de comando
 			expr = input("comando>")
-
+			#rodapé da linha de comando
 			if expr == "sair":
 				q = input("Deseja realmente sair?[Yy/Nn]")
 				if q in "Yy":
@@ -25,9 +33,9 @@ class ApplicationReplSession:
 				else:
 					continue
 
-			elif expr == "SQL":
+			elif expr == 'SQL':
 				query = input("query>")
-				print("Aguarde, executando query...")
+				# Aqui você tenta encaixar a classe Connection com o método execute_query nesta parte do código
 			elif expr == "gerar senha":
 				senha = "a1234x"
 				print("sua senha: ", senha)
@@ -39,18 +47,16 @@ class ApplicationReplSession:
 			except Exception as e:
 				print(e)
 
-	def check_auth(self):
-		if self.u == "usuario" and self.k == "10ab23ffx0":
+	def check_auth(self):  # Meta: Transformar em classe em sua respectiva pasta de módulo
+		# Um loop para verificar uma lista de nomes e senhas através de dicionários
+		if self.u == "usuario" and self.k == "1":
 			print("Logado! Iniciando Repl...")
+			return True
 
 		else:
-			print("Desconectado, algo suspeito aconteceu! Tentativa de login suspeita.")
-			print("ERRO: usuário ou senha são inconsistentes")
-			exit()
-			return 0
-
-
-
+			# leva ao registro de usuário
+			print("ERRO: usuário ou senha são inconsistentes OU não existe.")
+			return False
 
 
 #code.interact(local=locals(), banner="REPL ftmpservice>")
