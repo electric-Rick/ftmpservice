@@ -1,12 +1,17 @@
-from bin.input_data import Data
-from bin.gerador_temp.main import Temperatura
-
+#from bin.input_data import Data
+#from bin.Temperatura import Temperatura
+from bin.repl import main
 # Temperatura.planilha() = banco de dados
 
-a = Data.data()
+#a = Data.data()
 
 print('\n')
 print('~'*70)
-print('   No dia %i de %s, a variação de temperatura foi de %i° à %i°' % (a[1], Data.traducao(a[0]),Temperatura.planilha()[a[0] - 1][a[1] -1][1]['min'],Temperatura.planilha()[a[0] - 1][a[1] -1][1]['max']))
+print("Olá, usuário!\n Digite seu nome e senha para garantirmos os dados desta sessão: \n")
+
+user = input("username: ")
+pw   = input("pass: ")
+print("Nome e chave obtidas com sucesso, aguarde até o fim do processamento.")
+
 print('~'*70)
 print('\n')

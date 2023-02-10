@@ -1,9 +1,8 @@
 # CLASSE TEMPERATURA:
 
 from random import randint
-
+ 
 class Temperatura:
-
     def __init__ (self, temp_min, temp_max):
         self.tmin = temp_min
         self.tmax = temp_max
@@ -50,3 +49,7 @@ class Temperatura:
             lst1.extend([lst])
             lst = []
         return lst1
+
+temp = Temperatura.planilha()
+print(temp)
+

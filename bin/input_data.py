@@ -1,6 +1,12 @@
 # INPUT MÊS E DIA:
 
-from bin.gerador_temp.main import Temperatura
+from gerador_temp import temperatura as Temp
+
+
+print(Temp)
+f = Temp.Temperatura
+
+print(f.temps())
 
 class Data:
 
@@ -40,3 +46,6 @@ class Data:
             except:
                 print('\nDia inválido! Tente outro...')
         return [mes,dia]
+
+
+

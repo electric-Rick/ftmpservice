@@ -1,48 +1,52 @@
 import os
-import pymysql
+import sys
+import pymysql # banco de dados
+#import mysql.connector # banco de dados
+from config.database_configuration import ConfigureDatabase
+
+
 
 
 class Connection:
-	def __init__(self, username, host, database, password):
-		self.u = username
-		self.h = host
-		self.d = database
-		self.p = password
+	def __init__(self, database, table):
+		self.d = database # 1998
+		self.t = table
 		pass
 
-	def to_database(self):
-		db = pymysql.connect(host=self.h, user=self.u, password=self.p, database=self.d, port=3306)
-		cursor = db.cursor()
-		print("Conectado")
+	def to_database(a,b,**kwargs): # ['agosto', 'julho', 'dezembro','janeiro']
+		global t
+		global d
 
-	def execute_query(self, query):
-		sql = query
+		t = a
+		d = b
+
+		try:
+			if t == None and d == None:
+				dc = ConfigureDatabase.connection_params() #carregar_parametros_de_conexão()
+				db  = pymysql.connect(host=dc['host'], user=dc['user'], password=dc['sec_k'], database=dc['database'], port=dc['port'])			
+				cursor =db.cursor()
+#				return cursor
+				# tratar as próximas classes de insert, delete, update, read
+			else:
+				dc = ConfigureDatabase.wd_connection_params()
+				db = pymysql.connect(host=dc['host'], user=dc['user'], password=dc['sec_k'], database=d, port=dc['port'])
+				cursor = db.cursor()
+#				return cursor
+				# tratar as próximas classes de insert, delete, update e read.
+		except:
+			print("DB_ERR: Erro de conexão.")
+			raise Exception
+		finally:
+#			db.close()
+			print("Fim da conexão com o banco de dados. \n TABLE: ", t, "\n DATABASE:  ", d)
+
+	def execute_query(query):
+		print("QUERY CHAMADA: ", query)
+		cursor = Connection.to_database('database', 'test_yoobe')
 		pass
 
-def _create_connection(self):
-	return Connection(host=self._host,
-			  user=self._user,
-                          password=self._password,
-                          database=self._database,
-                          port=self._port,
-                          charset=self._charset,
-                          cursorclass=self._cursor_class,
-                          **self._other_kwargs)
-
-PASSWORD='giselemeuamor'
-HOST='0.0.0.0'
-USER='root'
-DATABASE='test_yoobe'
-
-a = PASSWORD
-b = HOST
-c = USER
-d = DATABASE
-
-f = Connection(a, b, c ,d)
-print(f.to_database())
-
-print(f)
 
 
 
+db = Connection("formiga","lazer")
+print(db)
