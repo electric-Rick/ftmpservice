@@ -3,7 +3,8 @@
 import asyncio
 import sys
 import time
-from commands import commands
+#from commands.commands import Comandos as commands
+from modules.auth_module import authenticate
 
 # adicionar modulo que lidará com login do usuário auth_module?
 from code import InteractiveConsole
@@ -15,11 +16,10 @@ class ApplicationReplSession:
 		self.k = key
 
 	def start_repl(self):
-		if ApplicationReplSession(self.u, self.k).check_auth() == True:
+#		if ApplicationReplSession(self.u, self.k).check_auth() == True:
+#                  print("Session ok")
 
-		else:
-
-
+#		else:
 		# checagem e interrupção
 		# check--->OK continue por aqui >>>
 		while True:
